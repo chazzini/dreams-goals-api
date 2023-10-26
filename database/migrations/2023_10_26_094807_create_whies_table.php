@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('whies', function (Blueprint $table) {
             $table->id();
+            $table->string('question');
+            $table->text('why');
+            $table->foreignId('category_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

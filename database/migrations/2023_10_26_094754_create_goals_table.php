@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('goals', function (Blueprint $table) {
             $table->id();
+            $table->string('target');
+            $table->string('image')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('completion_date');
+            $table->foreignId('category_id')->nullable();
+            $table->boolean('status')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
