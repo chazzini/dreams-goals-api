@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Api\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\GoalResource;
 use App\Models\Goal;
 use Illuminate\Http\Request;
 
@@ -13,23 +14,16 @@ class GoalController extends Controller
      */
     public function index()
     {
-        //
+        return GoalResource::collection(Goal::with('category')->get());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -37,16 +31,10 @@ class GoalController extends Controller
      */
     public function show(Goal $goal)
     {
-        //
+        return new GoalResource($goal);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Goal $goal)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.

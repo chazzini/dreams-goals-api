@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Api\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\WhyResource;
 use App\Models\Why;
 use Illuminate\Http\Request;
 
@@ -13,16 +14,10 @@ class WhyController extends Controller
      */
     public function index()
     {
-        //
+        return WhyResource::collection(Why::with('category')->get());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -35,9 +30,9 @@ class WhyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Why $why)
+    public function show($why)
     {
-        //
+        return new WhyResource($why);
     }
 
     /**

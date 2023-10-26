@@ -9,4 +9,17 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
+
+    public function confessions()
+    {
+        return $this->hasMany(Confession::class);
+    }
+    public function goals()
+    {
+        return $this->hasMany(Goal::class);
+    }
+    public function whys()
+    {
+        return $this->hasMany(Why::class);
+    }
 }

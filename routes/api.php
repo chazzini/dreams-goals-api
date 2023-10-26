@@ -1,7 +1,9 @@
 <?php
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('categories', 'App\Http\Controllers\Api\CategoryController');
+Route::apiResource('goals', 'App\Http\Controllers\Api\GoalController');
+Route::apiResource('confessions', 'App\Http\Controllers\Api\ConfessionController');
+Route::apiResource('reasons', 'App\Http\Controllers\Api\WhyController');

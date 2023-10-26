@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Api\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ConfessionResource;
 use App\Models\Confession;
 use Illuminate\Http\Request;
 
@@ -13,16 +14,9 @@ class ConfessionController extends Controller
      */
     public function index()
     {
-        //
+        return ConfessionResource::collection(Confession::with('category')->get());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,7 +31,7 @@ class ConfessionController extends Controller
      */
     public function show(Confession $confession)
     {
-        //
+        return new ConfessionResource($confession);
     }
 
     /**

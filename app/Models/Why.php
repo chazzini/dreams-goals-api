@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Why extends Model
 {
     use HasFactory;
-    protected $fillable = ['question','why','category_id'];
+    protected $fillable = [
+        'question',
+        'why',
+        'category_id'
+    ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
