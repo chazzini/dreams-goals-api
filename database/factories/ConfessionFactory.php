@@ -17,7 +17,8 @@ class ConfessionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'details'=> $this->faker->realText(250),
+            'category_id'=>null,
         ];
     }
 }

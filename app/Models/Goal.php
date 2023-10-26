@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Goal extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'target',
+        'image',
+        'start_date',
+        'completion_date',
+        'category_id',
+        'status'
+    ];
 }

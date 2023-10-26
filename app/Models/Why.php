@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Why extends Model
 {
     use HasFactory;
+    protected $fillable = ['question','why','category_id'];
 }

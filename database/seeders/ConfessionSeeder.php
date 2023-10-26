@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Confession;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class ConfessionSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Confession::factory()->count(60)->create();
     }
 }
